@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/employee_model.dart' show EmployeeModel, employees;
+import 'employee_view_screen.dart';
 
 class EmployeeDetailsScreen extends StatefulWidget {
   const EmployeeDetailsScreen({super.key});
@@ -71,7 +72,7 @@ class _EmployeeDetailsScreenState extends State<EmployeeDetailsScreen> {
               ),
               const SizedBox(height: 20),
               DropdownButtonFormField(
-                value: _selectedGender,
+                initialValue: _selectedGender,
                 items: _genders,
                 onChanged: (value) {
                   setState(() {
@@ -96,7 +97,7 @@ class _EmployeeDetailsScreenState extends State<EmployeeDetailsScreen> {
               ),
               const SizedBox(height: 20),
               DropdownButtonFormField(
-                value: _selectedDepartment,
+                initialValue: _selectedDepartment,
                 items: _departments,
                 onChanged: (value) {
                   setState(() {
@@ -120,38 +121,67 @@ class _EmployeeDetailsScreenState extends State<EmployeeDetailsScreen> {
                 },
               ),
               const SizedBox(height: 30),
-              ElevatedButton.icon(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    // create an EmployeeModel and add to the global list
-                    final employee = EmployeeModel(
-                      fullName: _fullNameController.text.trim(),
-                      gender: _selectedGender ?? '',
-                      department: _selectedDepartment ?? '',
-                    );
-                    setState(() {
-                      employees.add(employee);
-                      // clear the form
-                      _fullNameController.clear();
-                      _selectedGender = null;
-                      _selectedDepartment = null;
-                    });
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          // create an EmployeeModel and add to the global list
+                          final employee = EmployeeModel(
+                            fullName: _fullNameController.text.trim(),
+                            gender: _selectedGender ?? '',
+                            department: _selectedDepartment ?? '',
+                          );
+                          setState(() {
+                            employees.add(employee);
+                            // clear the form
+                            _fullNameController.clear();
+                            _selectedGender = null;
+                            _selectedDepartment = null;
+                          });
 
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Employee added')),
-                    );
-                  }
-                },
-                icon: const Icon(Icons.add),
-                label: const Text('Add Employee'),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Employee added')),
+                          );
+                        }
+                      },
+                      icon: const Icon(Icons.add),
+                      label: const Text('Add Employee'),
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                      ),
+                    ),
                   ),
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                ),
+                  const SizedBox(width: 15),
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const EmployeeViewScreen(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.visibility),
+                      label: const Text('View Employees'),
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        backgroundColor: Colors.orange,
+                        foregroundColor: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 40),
               if (employees.isNotEmpty)

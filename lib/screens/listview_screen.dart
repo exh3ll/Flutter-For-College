@@ -86,7 +86,7 @@ class _ListViewScreenState extends State<ListViewScreen> {
               ),
               const SizedBox(height: 20),
               DropdownButtonFormField(
-                value: _selectedCity,
+                initialValue: _selectedCity,
                 items: _cities,
                 onChanged: (value) {
                   setState(() {
