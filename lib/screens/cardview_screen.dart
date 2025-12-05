@@ -15,13 +15,29 @@ class CardViewScreen extends StatelessWidget {
         width: double.infinity,
         child: Card(
           color: Colors.amber,
-          child: Center(
-            child: Text(
-              "Hello I am CardView Screen",
-              style: TextStyle(fontSize: 18),
-            ),
+          margin: const EdgeInsets.all(10),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
           ),
-        ),
+          elevation: 8,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "First name: Binnol",
+                style: TextStyle(fontSize: 24, color: Colors.grey.shade800),
+              ), // Text
+              Text(
+                "Last name: Dahal",
+                style: TextStyle(fontSize: 24, color: Colors.grey.shade800),
+              ), // Text
+              Text(
+                "City: China, bangkok, kathmandu",
+                style: TextStyle(fontSize: 24, color: Colors.grey.shade800),
+              ), // Text
+            ],
+          ), // Column
+        ), // Card
       ),
     );
   }
