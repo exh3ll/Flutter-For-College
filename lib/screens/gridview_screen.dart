@@ -15,7 +15,7 @@ class GridViewScreen extends StatelessWidget {
         crossAxisSpacing: 8,
         mainAxisSpacing: 8,
         crossAxisCount: 3,
-        children: List.generate(9, (index) {
+        children: List.generate(10, (index) {
           return Container(
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 255, 238, 0),
@@ -23,7 +23,7 @@ class GridViewScreen extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                'Item ${index + 1}',
+                '${index + 1}',
                 style: const TextStyle(fontSize: 24, color: Colors.white),
               ),
             ),
