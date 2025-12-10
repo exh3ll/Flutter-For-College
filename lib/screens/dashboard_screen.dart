@@ -4,6 +4,7 @@ import 'gridview_screen.dart';
 import 'cardview_screen.dart';
 import 'stack_layout_screen.dart';
 import 'employee_details.dart';
+import 'image_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -146,6 +147,23 @@ class DashboardScreen extends StatelessWidget {
                         },
                       ),
                       const SizedBox(height: 20),
+                      _buildDashboardCard(
+                        context,
+                        title: 'Image Screen',
+                        subtitle: 'View image examples',
+                        icon: Icons.image,
+                        gradient: LinearGradient(
+                          colors: [Colors.teal.shade400, Colors.teal.shade600],
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const IronManStackScreen(),
+                            ),
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ),
