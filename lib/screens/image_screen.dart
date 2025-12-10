@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
-class IronManStackScreen extends StatelessWidget {
-  const IronManStackScreen({super.key});
+class ImageScreen extends StatefulWidget {
+  const ImageScreen({super.key});
 
+  @override
+  State<ImageScreen> createState() => _ImageScreenState();
+}
+
+class _ImageScreenState extends State<ImageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('IronMan Screen'),
+        title: const Text('Image Layout'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: SafeArea(
@@ -15,28 +20,27 @@ class IronManStackScreen extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             Container(
+              padding: EdgeInsets.all(8),
               height: 400,
-              padding: const EdgeInsets.all(12),
               width: double.infinity,
-              color: Colors.amber,
               child: Image.network(
-                "https://www.shutterstock.com/image-vector/july-3-2023-vector-illustration-600nw-2326749515.jpg",
+                'https://cdn.marvel.com/content/2x/002irm_com_cut_mob_01_2.jpg',
               ),
             ),
             Positioned(
-              top: 30,
-              right: 30,
-              child: Icon(Icons.edit, color: Colors.lightBlue),
+              top: 10,
+              right: 10,
+              child: Icon(Icons.edit, color: Colors.blue),
             ),
             Positioned(
-              bottom: 30,
-              left: 30,
-              child: Icon(Icons.thumbs_up_down, color: Colors.blue),
+              bottom: 20,
+              left: 50,
+              child: Icon(Icons.thumb_up, color: Colors.blue),
             ),
             Positioned(
-              bottom: 30,
-              left: 70,
-              child: Icon(Icons.comment, color: Colors.purple),
+              bottom: 20,
+              left: 80,
+              child: Icon(Icons.comment, color: Colors.blue),
             ),
           ],
         ),

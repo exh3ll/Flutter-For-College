@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_for_college/screens/bottom_navigation_screen.dart';
+import 'employee_view_screen.dart';
+import 'package:flutter_for_college/screens/image_screen.dart';
 import 'listview_screen.dart';
 import 'gridview_screen.dart';
 import 'cardview_screen.dart';
 import 'stack_layout_screen.dart';
-import 'employee_details.dart';
-import 'image_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -109,28 +110,6 @@ class DashboardScreen extends StatelessWidget {
                       const SizedBox(height: 20),
                       _buildDashboardCard(
                         context,
-                        title: 'Employee Details',
-                        subtitle: 'Manage employee information',
-                        icon: Icons.business_center_rounded,
-                        gradient: LinearGradient(
-                          colors: [
-                            Colors.purple.shade400,
-                            Colors.purple.shade600,
-                          ],
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const EmployeeDetailsScreen(),
-                            ),
-                          );
-                        },
-                      ),
-                      const SizedBox(height: 20),
-                      _buildDashboardCard(
-                        context,
                         title: 'Stack Layout',
                         subtitle: 'Explore stack layout examples',
                         icon: Icons.layers_rounded,
@@ -149,17 +128,54 @@ class DashboardScreen extends StatelessWidget {
                       const SizedBox(height: 20),
                       _buildDashboardCard(
                         context,
-                        title: 'Image Screen',
-                        subtitle: 'View image examples',
-                        icon: Icons.image,
+                        title: 'EmployeeView',
+                        subtitle: 'Employee View layout examples',
+                        icon: Icons.layers_rounded,
                         gradient: LinearGradient(
-                          colors: [Colors.teal.shade400, Colors.teal.shade600],
+                          colors: [Colors.orange, Colors.orange.shade400],
                         ),
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const IronManStackScreen(),
+                              builder: (context) => const EmployeeViewScreen(),
+                            ),
+                          );
+                        },
+                      ),
+
+                      _buildDashboardCard(
+                        context,
+                        title: 'ImageView',
+                        subtitle: 'Image View layout examples',
+                        icon: Icons.layers_rounded,
+                        gradient: LinearGradient(
+                          colors: [Colors.orange, Colors.orange.shade400],
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ImageScreen(),
+                            ),
+                          );
+                        },
+                      ),
+
+                      _buildDashboardCard(
+                        context,
+                        title: 'ImageView',
+                        subtitle: 'Image View layout examples',
+                        icon: Icons.layers_rounded,
+                        gradient: LinearGradient(
+                          colors: [Colors.orange, Colors.orange.shade400],
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const BottomNavigationScreen(),
                             ),
                           );
                         },
