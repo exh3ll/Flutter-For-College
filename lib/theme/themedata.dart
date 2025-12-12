@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_for_college/screens/dashboard_screen.dart';
 
 ThemeData getAppThemeData() {
   return ThemeData(
