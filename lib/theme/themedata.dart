@@ -7,7 +7,7 @@ ThemeData getAppThemeData() {
     fontFamily: 'OpenSans regular',
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Color(0xFF6200EE),
         foregroundColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
